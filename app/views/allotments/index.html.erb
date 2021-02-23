@@ -1,0 +1,22 @@
+
+<h1>Search</h1>
+<%= simple_form_for :search, url: allotments_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :location, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
+<div class="container">
+<% @results.each do |result| %>
+<div class="card-product">
+<img src="https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80" />
+<div class="card-product-infos">
+  <div><%= result.name %></div>
+  <div><%= result.description %></div>
+  <div><%= result.area_size %></div>
+  <div><%= "#{result.price}/month" %></div>
+  <div><%= link_to "Find more", allotment_path(result) %></div>
+</div>
+</div>
+<% end %>
+</div>
+

@@ -1,5 +1,12 @@
 class AllotmentsController < ApplicationController
-  def index; end
+  def index
+    @allotments = Allotment.all
+    @search = params["search"]
+    if @search.present?
+      @location = @search["location"]
+      @results = Allotment.where("location ILIKE ?", @location)
+    end
+  end
 
   def show
     @allotment = Allotment.find(params[:id])
