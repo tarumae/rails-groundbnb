@@ -1,7 +1,10 @@
 class AllotmentsController < ApplicationController
   def index; end
 
-  def show; end
+  def show
+    @allotment = Allotment.find(params[:id])
+    @booking = Booking.new
+  end
 
   def new; end
 
