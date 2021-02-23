@@ -7,7 +7,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div>
-      <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani">
+      <%= link_to "Browse all gardens", allotments_path, class: "btn btn-outline-success" %>
+      <img class="avatar" alt="avatar" src="https://www.flaticon.com/svg/vstatic/svg/2553/2553701.svg?token=exp=1614100663~hmac=2f854bfce790384b72c0b89a2909ed9b">
     </div>
   </div>
 <% else %>
@@ -17,6 +18,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div>
+      <%= link_to "Browse all gardens", allotments_path, class: "btn btn-outline-success" %>
       <%= link_to "Sign in", new_user_session_path, class: "btn btn-flat" %>
     </div>
   </div>
