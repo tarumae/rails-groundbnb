@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="flex">
+    <h2><%= @allotment.name %></h2>
+
+    <div class="options">
+      <span><%= link_to "Delete", allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"} %></span>
+      <span><%= link_to "Edit", edit_allotment_path(@allotment)  %></span>
+    </div>
+
+  </div>
+
+  <div class="flex">
+    <img src="https://via.placeholder.com/500x300?text=Allotment+Photo" alt="">
+    <img src="https://via.placeholder.com/500x300?text=Map" alt="">
+  </div>
+
+  <div class="flex details">
+
+    <div class="description">
+      <h4>A little bit about this allotment</h4>
+      <p><%= @allotment.description %></p>
+      <span>Location: <%= @allotment.location %></span>
+      <p>Allotment size: <%= @allotment.area_size %>m<sup>2</sup></p>
+      <p>Owned by: <%= @allotment.user.email %></p>
+    </div>
+
+    <div class="booking">
+      <h6><strong>£<%= @allotment.price %></strong> per month</h6>
+      <%= simple_form_for [@allotment, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+
+  </div>
+  
+</div>
