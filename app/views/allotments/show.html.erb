@@ -36,7 +36,7 @@
       <p>Owned by: <%= @allotment.user.email %></p>
     </div>
   
-  <% if !@allotment.user == current_user %>
+  <% if @allotment.user != current_user %>
     <div class="booking">
       <h6><strong>£<%= @allotment.price %></strong> per month</h6>
       <%= simple_form_for [@allotment, @booking] do |f| %>
