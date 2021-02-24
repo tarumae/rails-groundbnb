@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show-background">
 
   <div class="flex">
     <h2><%= @allotment.name %></h2>
@@ -12,6 +12,7 @@
   </div>
 
   <div class="flex">
+
       <% if @allotment.photos.attached? %>
         <%= cl_image_tag(@allotment.photos.first.key,
           width: 400, height: 300, crop: :fill) %>
@@ -19,6 +20,7 @@
          <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300">
       <% end %>
     <img src="https://via.placeholder.com/500x300?text=Map" alt="">
+
   </div>
 
   <div class="flex details">
@@ -26,8 +28,8 @@
     <div class="description">
       <h4>A little bit about this allotment</h4>
       <p><%= @allotment.description %></p>
-      <span>Location: <%= @allotment.location %></span>
-      <p>Allotment size: <%= @allotment.area_size %>m<sup>2</sup></p>
+      <p><i class="fas fa-street-view"></i> <%= @allotment.location %></p>
+      <p><i class="fas fa-ruler-horizontal"></i> Size: <%= @allotment.area_size %>m<sup>2</sup></p>
       <p>Owned by: <%= @allotment.user.email %></p>
     </div>
 
