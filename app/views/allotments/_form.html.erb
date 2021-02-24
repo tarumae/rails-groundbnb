@@ -1,0 +1,9 @@
+<%= simple_form_for(@allotment) do |f| %>
+<%= f.input :name, placeholder: 'Name', label: 'Allotment Name' %>
+<%= f.input :description %>
+<%= f.input :location %>
+<%= f.input :price %>
+<%= f.input :area_size %>
+<%= f.input :photos, as: :file, input_html: { multiple: true} %>
+<%= f.button :submit %>
+<% end %>
