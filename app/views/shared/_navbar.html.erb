@@ -6,9 +6,10 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div>
+    <div class="dropdown">
       <%= link_to "Browse all gardens", allotments_path, class: "btn btn-outline-success" %>
-      <img class="avatar" alt="avatar" src="https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614182447/user_j2hkzo.png">
+      <%= link_to "Log out", root_path, class: "btn btn-outline-success" %>
+      <%# <img class="avatar" alt="avatar" src="https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614182447/user_j2hkzo.png"> %>
     </div>
   </div>
 <% else %>
