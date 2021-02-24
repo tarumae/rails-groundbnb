@@ -1,15 +1,8 @@
 <div class="container show-background">
 
   <div class="flex">
-    <h2><%= @allotment.name %></h2>
+    <h1><%# add icon %><%= @allotment.name %><%# add icon %></h1>
   
-  <% if @allotment.user == current_user %>
-    <div class="options">
-      <span><%= link_to "Delete", allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"} %></span>
-      <span><%= link_to "Edit", edit_allotment_path(@allotment)  %></span>
-
-    </div>
-    <% end %>
   
 
   </div>
@@ -48,6 +41,16 @@
     </div>
   <% end %>
   
+  <% if @allotment.user == current_user %>
+    <div class="options">
+      <ul>
+        <li class="btn btn-flat fas fa-trash-alt"> <span><%= link_to "Delete", allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"} %></span></li>
+        <br>
+        <br>
+        <li class="btn btn-flat fas fa-tools"> <span><%= link_to "Edit", edit_allotment_path(@allotment)  %></span></li>
+      </ul>
+    </div>
+  <% end %>
 
   </div>
 

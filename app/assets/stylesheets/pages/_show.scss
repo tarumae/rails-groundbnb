@@ -6,9 +6,10 @@
   img {
     margin: 0 5px;
   }
-  h2 {
+  h1 {
     margin-top: 35px;
     margin-left: 40px;
+    color: white;
   }
 }
 
@@ -35,4 +36,11 @@
 .pics {
   width:500px;
   height:300px;
+}
+
+.options {
+  border-radius: 26%;
+  background-color: white;
+  padding: 32px;
+  margin: 15px 52px;
 }
