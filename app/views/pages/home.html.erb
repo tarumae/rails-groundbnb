@@ -1,12 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532434418666-NN9YN6901LFCO43GZYBZ/ke17ZwdGBToddI8pDm48kMW-P9pta-BYWZxEMI3BKYl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0p4Wyba38KfG317vYluk45-p5WWTS4f4Tp1l_ud6gYH9Cc-xG3LLbueyNfhvXi2kmg/2-L1009592-Edit.jpg?format=2500w')"><div class="container"><h1>Groundbnb</h1>
-<p>Rent an allotment through Groundbnb to grow your own fruit and vegetables</p></div></div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532434418666-NN9YN6901LFCO43GZYBZ/ke17ZwdGBToddI8pDm48kMW-P9pta-BYWZxEMI3BKYl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0p4Wyba38KfG317vYluk45-p5WWTS4f4Tp1l_ud6gYH9Cc-xG3LLbueyNfhvXi2kmg/2-L1009592-Edit.jpg?format=2500w')">
+<div class="container"><h1>GroundBnB</h1>
+<p>Rent an allotment through GroundBnB to grow your own fruit and vegetables</p></div></div>
 
 <div class="container search">
   <div class="search-bar">
    <div class="search-text"><h1>Search</h1></div>
   <div class="search-form">
   <%= simple_form_for :search, url: allotments_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :location, placeholder: 'location', input_html: {value: ""} %>
+    <%= f.input :location, placeholder: 'Location', input_html: {value: ""}, label: false %>
     <%= f.submit "Search", class: "btn btn-primary" %>
   <% end %>
   </div>
@@ -14,7 +15,7 @@
 </div>
 
 
-  <div class="container">
+  <div class="container top-allotments-container">
     <h3>Top-rated Allotments</h3>
     <div class="row">
       <% @allotments.each do |allotment| %>
@@ -26,9 +27,9 @@
           <% end %>
         <div class="card-trip-infos">
           <div><%= allotment.name %></div>
-          <div><%= allotment.location %></div>
+          <div>Location: <%= allotment.location %></div>
           <div><%= allotment.description %></div>
-          <div><%= allotment.area_size %></div>
+          <div>Size: <%= allotment.area_size %>m<sup>2</sup></div>
           <div><%= link_to "Find more", allotment_path(allotment) %></div>
         </div>
       </div>
