@@ -26,7 +26,6 @@ export const totalprice = () => {
     let months = (end_date.getFullYear() - start_date.getFullYear()) * 12;
     months -= start_date.getMonth();
     months += end_date.getMonth();
-    console.log(months)
     document.querySelector(".totalprice").innerHTML = `Total Price: £${months === 0 ? price : price * months}`;
   });
 }
