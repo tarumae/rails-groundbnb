@@ -1,13 +1,14 @@
 .flex {
+  margin-top: 60px;
+  margin-bottom: 60px;
   display: flex;
-  background-color: lightgreen;
   align-items: center;
   justify-content: center;
   img {
     margin: 0 5px;
   }
   h2 {
-    margin-top: 10px;
+    margin-top: 35px;
     margin-left: 40px;
   }
 }
@@ -17,5 +18,18 @@
 }
 
 .description, .booking {
-  margin: 10px 20px;
+  padding: 32px;
+  background-color: white;
+  margin: 15px 52px;
+}
+
+.show-background {
+  border-radius: 3%;
+  background-color: $light-green;
+  box-shadow: 5px 5px rgba($color: #AFAAB9, $alpha: 0.2)
+}
+
+.pics {
+  width:500px;
+  height:300px;
 }
