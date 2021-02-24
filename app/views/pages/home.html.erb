@@ -9,20 +9,24 @@
 <% end %>
 
 <h3>Top-rated Allotments</h3>
-<div class="container">
-<div class="row">
-<% @allotments.each do |allotment| %>
-<div class="col card-trip">
-<img src="https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80" />
-<div class="card-trip-infos">
-<div><%= allotment.name %></div>
-<div><%= allotment.location %></div>
-<div><%= allotment.description %></div>
-<div><%= allotment.area_size %></div>
-<div><%= link_to "Find more", allotment_path(allotment) %></div>
-</div>
-</div>
-<% end %>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <% @allotments.each do |allotment| %>
+        <div class="col card-trip">
+          <% if allotment.photos.attached? %>
+            <%= cl_image_tag(allotment.photos.first.key, crop: :fill) %>
+          <% else %>
+            <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300">
+          <% end %>
+        <div class="card-trip-infos">
+          <div><%= allotment.name %></div>
+          <div><%= allotment.location %></div>
+          <div><%= allotment.description %></div>
+          <div><%= allotment.area_size %></div>
+          <div><%= link_to "Find more", allotment_path(allotment) %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

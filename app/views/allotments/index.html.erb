@@ -1,4 +1,4 @@
-
+<div><%= link_to "New", new_allotment_path %></div>
 <h1>Search</h1>
 <%= simple_form_for :search, url: allotments_path, method: "GET", html: { class: 'form-inline' } do |f| %>
   <%= f.input :location, input_html: {value: ""} %>
@@ -8,7 +8,12 @@
 <div class="container">
 <% @results.each do |result| %>
 <div class="card-product">
-<img src="https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1650&q=80" />
+  <% if result.photos.attached? %>
+    <%= cl_image_tag(result.photos.first.key,
+          width: 400, height: 300, crop: :fill) %>
+    <% else %>
+      <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300">
+  <% end %>
 <div class="card-product-infos">
   <div><%= result.name %></div>
   <div><%= result.description %></div>
