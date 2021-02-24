@@ -2,13 +2,12 @@ class AllotmentsController < ApplicationController
   before_action :set_allotment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @allotments = Allotment.all
-    @search = params["search"]
-    if @search.present?
+    if @search.blank?
+      @results = Allotment.all
+    else
+      @search = params["search"]
       @location = @search["location"]
       @results = Allotment.where("location ILIKE ?", @location)
-    else
-      @results = Allotment.all
     end
   end
 
