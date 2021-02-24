@@ -34,7 +34,8 @@
     </div>
 
     <div class="booking">
-      <h6><strong>£<%= @allotment.price %></strong> per month</h6>  
+      <h6><strong>£</strong><strong class="price"><%= @allotment.price %></strong> per month</h6>
+      <h5 class="totalprice"></h5>  
       <%= simple_form_for [@allotment, @booking] do |f| %>
         <%= f.input :start_date, as: :string, input_html: {class: "datepickerstart"} %>
         <%= f.input :end_date, as: :string, input_html: {class: "datepickerend"} %>
