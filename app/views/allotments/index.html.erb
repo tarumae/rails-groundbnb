@@ -1,9 +1,15 @@
 <div><%= link_to "New", new_allotment_path %></div>
-<h1>Search</h1>
+<div class="container search">
+  <div class="search-bar">
+   <div class="search-text"><h1>Search</h1></div>
+      <div class="search-form">
 <%= simple_form_for :search, url: allotments_path, method: "GET", html: { class: 'form-inline' } do |f| %>
   <%= f.input :location, input_html: {value: ""} %>
   <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
+</div>
+  </div>
+</div>
 
 <div class="container">
 <% @results.each do |result| %>
@@ -12,16 +18,15 @@
     <%= cl_image_tag(result.photos.first.key,
           width: 400, height: 300, crop: :fill) %>
     <% else %>
-      <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300">
+      <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300" class="card-product-img">
   <% end %>
 <div class="card-product-infos">
-  <div><%= result.name %></div>
-  <div><%= result.description %></div>
-  <div><%= result.area_size %></div>
-  <div><%= "#{result.price}/month" %></div>
+  <h3><%= result.name %></h3>
+  <p><%= result.description %></p>
+  <p><%= result.area_size%>m<sup>2</sup></p>
+  <p><%= "£#{result.price} per month" %></p>
   <div><%= link_to "Find more", allotment_path(result) %></div>
 </div>
 </div>
 <% end %>
 </div>
-
