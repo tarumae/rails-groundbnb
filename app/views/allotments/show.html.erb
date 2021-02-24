@@ -6,13 +6,21 @@
     <div class="options">
       <span><%= link_to "Delete", allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"} %></span>
       <span><%= link_to "Edit", edit_allotment_path(@allotment)  %></span>
+
     </div>
 
   </div>
 
   <div class="flex">
-    <img src="https://hightimes.com/wp-content/uploads/2017/11/Outdoor-Marijuana-Growing-For-Beginners-Header.jpg" class="pics" alt="">
-    <img src="https://cdn.images.express.co.uk/img/dynamic/25/590x/secondary/Google-Maps-2702826.jpg?r=1602181753125/" class="pics" alt="">
+
+      <% if @allotment.photos.attached? %>
+        <%= cl_image_tag(@allotment.photos.first.key,
+          width: 400, height: 300, crop: :fill) %>
+      <% else %>
+         <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300">
+      <% end %>
+    <img src="https://via.placeholder.com/500x300?text=Map" alt="">
+
   </div>
 
   <div class="flex details">
