@@ -1,15 +1,21 @@
-<h1>Groundbnb</h1>
-<p>Rent an allotment through Groundbnb to grow your own fruit and vegetables</p>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1611843467160-25afb8df1074?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')"><div class="container"><h1>main photo</h1></div></div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532434418666-NN9YN6901LFCO43GZYBZ/ke17ZwdGBToddI8pDm48kMW-P9pta-BYWZxEMI3BKYl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0p4Wyba38KfG317vYluk45-p5WWTS4f4Tp1l_ud6gYH9Cc-xG3LLbueyNfhvXi2kmg/2-L1009592-Edit.jpg?format=2500w')"><div class="container"><h1>Groundbnb</h1>
+<p>Rent an allotment through Groundbnb to grow your own fruit and vegetables</p></div></div>
 
-<h1>Search</h1>
-<%= simple_form_for :search, url: allotments_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :location, input_html: {value: ""} %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="container search">
+  <div class="search-bar">
+   <div class="search-text"><h1>Search</h1></div>
+  <div class="search-form">
+  <%= simple_form_for :search, url: allotments_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :location, placeholder: 'location', input_html: {value: ""} %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+  </div>
+</div>
 
-<h3>Top-rated Allotments</h3>
+
   <div class="container">
+    <h3>Top-rated Allotments</h3>
     <div class="row">
       <% @allotments.each do |allotment| %>
         <div class="col card-trip">
