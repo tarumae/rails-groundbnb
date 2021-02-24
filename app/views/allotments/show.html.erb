@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show-background">
 
   <div class="flex">
     <h2><%= @allotment.name %></h2>
@@ -11,8 +11,8 @@
   </div>
 
   <div class="flex">
-    <img src="https://via.placeholder.com/500x300?text=Allotment+Photo" alt="">
-    <img src="https://via.placeholder.com/500x300?text=Map" alt="">
+    <img src="https://hightimes.com/wp-content/uploads/2017/11/Outdoor-Marijuana-Growing-For-Beginners-Header.jpg" class="pics" alt="">
+    <img src="https://cdn.images.express.co.uk/img/dynamic/25/590x/secondary/Google-Maps-2702826.jpg?r=1602181753125/" class="pics" alt="">
   </div>
 
   <div class="flex details">
@@ -20,8 +20,8 @@
     <div class="description">
       <h4>A little bit about this allotment</h4>
       <p><%= @allotment.description %></p>
-      <span>Location: <%= @allotment.location %></span>
-      <p>Allotment size: <%= @allotment.area_size %>m<sup>2</sup></p>
+      <p><i class="fas fa-street-view"></i> <%= @allotment.location %></p>
+      <p><i class="fas fa-ruler-horizontal"></i> Size: <%= @allotment.area_size %>m<sup>2</sup></p>
       <p>Owned by: <%= @allotment.user.email %></p>
     </div>
 
