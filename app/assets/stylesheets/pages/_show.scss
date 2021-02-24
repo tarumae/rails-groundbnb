@@ -1,5 +1,4 @@
 .flex {
-  margin-top: 60px;
   margin-bottom: 60px;
   display: flex;
   align-items: center;
@@ -24,9 +23,13 @@
 }
 
 .show-background {
+  margin-top: 60px;
   border-radius: 3%;
-  background-color: $light-green;
-  box-shadow: 5px 5px rgba($color: #AFAAB9, $alpha: 0.2)
+  background-color: #81eebd;
+  box-shadow: 5px 5px rgba(175, 170, 185, 20%);
+  padding: 64px;
+  padding-bottom: 5px;
+  margin-bottom: 40px;
 }
 
 .pics {
