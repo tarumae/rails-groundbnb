@@ -22,6 +22,7 @@ class AllotmentsController < ApplicationController
 
   def create
     @allotment = Allotment.create(allotment_params)
+    @allotment.user = current_user
     if @allotment.save
       redirect_to allotment_path(@allotment), notice: 'Allotment was successfully created.'
     else
