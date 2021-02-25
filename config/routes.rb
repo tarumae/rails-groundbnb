@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :allotments do
     resources :bookings, only: :create
   end
-  delete '/bookings/:id', to: 'bookings#destroy'
+  delete '/bookings/:id', to: 'bookings#destroy', as: 'booking'
   patch '/bookings/:id', to: 'bookings#approve'
+  get '/bookings', to: 'bookings#index'
 end

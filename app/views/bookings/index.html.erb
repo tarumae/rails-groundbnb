@@ -1,0 +1,87 @@
+<div class="container">
+  <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="true">My bookings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="my-allotment-bookings-tab" data-toggle="tab" href="#my-allotment-bookings" role="tab" aria-controls="my-allotment-bookings" aria-selected="false">My allotment bookings</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
+        <% @my_bookings.each do |booking| %>
+          <div class="card-product mt-3" style="border-radius: 10px;">
+            <% if booking.allotment.photos.attached? %>
+              <%= cl_image_tag(booking.allotment.photos.first.key,
+                width: 400, height: 300, crop: :fill) %>
+            <% else %>
+              <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300" class="card-product-img">
+            <% end %>
+            <div class="card-product-infos">
+              <div class="card-product-info1">
+                <h3><%= booking.allotment.name %></h3>
+                <p><%= booking.allotment.description %></p>
+              </div>
+              <div class="card-product-info2">
+                <%= link_to "", booking_path(booking), class: "btn btn-flat fas fa-trash-alt", method: :delete, data: {confirm: "Are you sure you wish to delete your booking?"}  %>
+                <p>Dates: <%= booking.start_date.strftime("%d/%m/%Y") %> - <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+                <p>Size: <%= booking.allotment.area_size%>m<sup>2</sup></p>
+                <p>Total price: <%= "£#{booking.total_price}" %></p>
+                <% if booking.approved.nil? %>
+                  <p>Status: <em class="approval text-warning">Pending...</em></p>
+                <% elsif booking.approved %>
+                  <p>Status: <strong class="approval text-success">Accepted</strong></p>
+                <% else %>
+                  <p>Status: <strong class="approval text-danger">Rejected</strong></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+    </div>
+
+    <div class="tab-pane fade" id="my-allotment-bookings" role="tabpanel" aria-labelledby="my-allotment-bookings-tab">
+        <% @my_allotments.each do |allotment| %>
+          <% allotment.bookings.each do |booking| %>
+                <div class="card-product mt-3" style="border-radius: 10px;">
+            <% if booking.allotment.photos.attached? %>
+              <%= cl_image_tag(booking.allotment.photos.first.key,
+                width: 400, height: 300, crop: :fill) %>
+            <% else %>
+              <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300" class="card-product-img">
+            <% end %>
+            <div class="card-product-infos">
+              <div class="card-product-info1">
+                <h3><%= booking.allotment.name %></h3>
+                <p><%= booking.allotment.description %></p>
+                <% if booking.approved.nil? %>
+                  <div class="approve-buttons">
+                    <%= link_to "Accept", booking_path(booking, approved: true), method: :patch, class: "btn btn-success" %>
+                    <%= link_to "Reject", booking_path(booking, approved: false), method: :patch, class: "btn btn-danger" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="card-product-info2">
+                <%= link_to "", booking_path(booking), class: "btn btn-flat fas fa-trash-alt", method: :delete, data: {confirm: "Are you sure you wish to delete your booking?"}  %>
+                <p>Booked by: <strong><%= booking.user.email%></strong></p>
+                <p>Dates: <strong><%= booking.start_date.strftime("%d/%m/%Y") %> - <%= booking.end_date.strftime("%d/%m/%Y") %></strong></p>
+                <p>Total price: <%= "£#{booking.total_price}" %></p>
+                <% if booking.approved.nil? %>
+                  <p>Status: <em class="approval text-warning">Pending...</em></p>
+                <% elsif booking.approved %>
+                  <p>Status: <strong class="approval text-success">Accepted</strong></p>
+                <% else %>
+                  <p>Status: <strong class="approval text-danger">Rejected</strong></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+
+</div>
