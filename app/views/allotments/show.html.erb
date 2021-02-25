@@ -45,7 +45,7 @@
   <% end %>
 
   <% if @allotment.user == current_user %>
-    <div class="options">
+    <div class="options d-flex justify-content-center">
       <ul>
         <li class="btn btn-flat fas fa-trash-alt"> <span><%= link_to "Delete", allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"} %></span></li>
         <br>
