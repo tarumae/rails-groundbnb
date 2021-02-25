@@ -17,16 +17,18 @@ export const init_flatpickr = () => {
 
 export const totalprice = () => {
   let end_date = document.querySelector(".datepickerend");
+  if (end_date) {
 
-  end_date.addEventListener("change", function () {
-    // This still needs tweaking. Currently if you choose to rent for 1.5 months for example, it will only show total price for 1 month.
-    let start_date = new Date(document.querySelector(".datepickerstart").value);
-    let end_date = new Date(document.querySelector(".datepickerend").value);
-    let price = parseInt(document.querySelector(".price").innerText);
-    let months = (end_date.getFullYear() - start_date.getFullYear()) * 12;
-    months -= start_date.getMonth();
-    months += end_date.getMonth();
-    document.querySelector(".totalprice").innerHTML = `Total Price: £${months === 0 ? price : price * months}`;
-  });
+    end_date.addEventListener("change", function () {
+      // This still needs tweaking. Currently if you choose to rent for 1.5 months for example, it will only show total price for 1 month.
+      let start_date = new Date(document.querySelector(".datepickerstart").value);
+      let end_date = new Date(document.querySelector(".datepickerend").value);
+      let price = parseInt(document.querySelector(".price").innerText);
+      let months = (end_date.getFullYear() - start_date.getFullYear()) * 12;
+      months -= start_date.getMonth();
+      months += end_date.getMonth();
+      document.querySelector(".totalprice").innerHTML = `Total Price: £${months === 0 ? price : price * months}`;
+    });
+  }
 }
 
