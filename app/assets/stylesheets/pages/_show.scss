@@ -7,19 +7,21 @@
     margin: 0 5px;
   }
   h1 {
-    margin-top: 35px;
+    margin-top: 20px;
     margin-left: 40px;
-    color: white;
+    color: #F4F4F4;
+    font-size: 50px;
+    letter-spacing: 5px;
   }
 }
 
 .details {
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .description, .booking {
   padding: 32px;
-  background-color: white;
+  background-color: #F4F4F4;
   margin: 15px 52px;
 }
 
@@ -40,7 +42,28 @@
 
 .options {
   border-radius: 26%;
-  background-color: white;
+  // background-color: wite;
   padding: 32px;
   margin: 15px 52px;
+}
+
+.options li {
+  padding: 12px 28px;
+  color: #0fa3b1;
+}
+
+.options li:hover {
+  color: #D8F1A0;
+}
+
+.options li a {
+  color: #D8F1A0;
+}
+
+#edit {
+  padding: 0 7px;
+}
+
+#delete {
+  margin-top: 35px;
 }
