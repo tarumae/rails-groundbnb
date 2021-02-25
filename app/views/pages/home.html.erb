@@ -29,27 +29,49 @@
       </div>
     </div>
 </div>
-
+<div style="text-align: center; padding:20px;">
+  <h1>Why us?</h1>
+</div>
   <div class="container top-container">
-    <h3>Top-rated Allotments</h3>
     <div class="row">
-      <% @allotments.each do |allotment| %>
-        <div class="col card-trip">
-          <% if allotment.photos.attached? %>
-            <%= cl_image_tag(allotment.photos.first.key, crop: :fill) %>
-          <% else %>
-            <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300">
-          <% end %>
-            <%= link_to allotment_path(allotment) do%>
-        <div class="card-trip-infos">
-          <div><%= allotment.name %></div>
-          <div>Location: <%= allotment.location %></div>
-          <div><%= allotment.description[0, 100] %>...</div>
-          <div>Size: <%= allotment.area_size %>m<sup>2</sup></div>
+      <div class="column" >
+        <div class="far fa-lightbulb">
         </div>
-        <% end %>
+        <h2>Innovative</h2>
+        <p>We are the the first app that let you hire the allotment you've always dreamt about in a blink of an eye.</p>
       </div>
-      <% end %>
+      <div class="column">
+        <div class="far fa-lightbulb">
+        </div>
+        <h2>Caring</h2>
+        <p>Our gardeners team will prepare the ground before you settle on your new piece of land, making sure your experience will have the best possible start.</p>
+      </div>
+      <div class="column">
+        <div class="far fa-lightbulb">
+        </div>
+        <h2>lorem Ipsum</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ipsum illum molestias fuga sed quis nam, voluptatum dicta vel voluptates molestiae tempora. Vero et assumenda recusandae nemo delectus asperiores eaque.</p>
+      </div>
     </div>
   </div>
 
+<%# <h3>Top-rated Allotments</h3>
+    <div class="row">
+      <% @allotments.each do |allotment| %>
+        <%# <div class="col card-trip">
+          <% if allotment.photos.attached? %>
+            <%# <%= cl_image_tag(allotment.photos.first.key, crop: :fill) %> 
+          <%# <% else %> 
+            <%# <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300"> %>
+          <%# <% end %> 
+            <%# <%= link_to allotment_path(allotment) do  %>
+        <%# <div class="card-trip-infos"> %>
+          <%# <div><%= allotment.name</div>  %>
+          <%# <div>Location: <%= allotment.location</div>  %>
+          <%# <div><%= allotment.description[0, 100]...</div> %>
+          <%# <div>Size: <%= allotment.area_sizem<sup>2</sup></div>  %>
+        <%# </div> %>
+        <%# <% end %>
+      <%# </div> %>
+      <%# <% end %>
+    <%# </div> %> 
