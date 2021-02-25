@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="navbar navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to root_path, class: "btn btn-flat" do %>
     <img src="https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614182368/farming_nj7zjh.png" class="logo" alt="logo">Ground BnB
     <% end %>
@@ -13,7 +13,7 @@
     </div>
   </div>
 <% else %>
-  <div class="navbar navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to "Ground BnB", root_path, class: "btn btn-flat" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
