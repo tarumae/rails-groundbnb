@@ -26,30 +26,37 @@
   </div>
 <% end %>
 
-
 <div class="container">
+  <div class="card-box">
+    <div class="card">
 <% @allotments.each do |allotment| %>
-<div class="card-product">
-  <% if allotment.photos.attached? %>
-    <%= cl_image_tag(allotment.photos.first.key,
-          width: 400, height: 300, crop: :fill) %>
-    <% else %>
-      <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300" class="card-product-img">
-  <% end %>
-  <%= link_to allotment_path(allotment) do%>
-    <div class="card-product-infos">
-      <div class="card-product-info1">
-        <h3><%= allotment.name %></h3>
-        <p><%= allotment.description %></p>
-      </div>
-      <div class="card-product-info2">
-        <p><%= allotment.area_size%>m<sup>2</sup></p>
-        <p><%= "£#{allotment.price} per month" %></p>
-      </div>
-    </div>
+  <div class="card-product">
+    <% if allotment.photos.attached? %>
+      <%= cl_image_tag(allotment.photos.first.key,
+            width: 400, height: 300, crop: :fill) %>
+      <% else %>
+        <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300" class="card-product-img">
     <% end %>
-    <i class="fas fa-heart"></i>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
-  </div>
+    <%= link_to allotment_path(allotment) do%>
+      <div class="card-product-infos">
+        <div class="card-product-info1">
+          <h3><%= allotment.name %></h3>
+          <p><%= allotment.description %></p>
+        </div>
+        <div class="card-product-info2">
+          <p><%= allotment.area_size%>m<sup>2</sup></p>
+          <p><%= "£#{allotment.price} per month" %></p>
+        </div>
+      </div>
+      <% end %>
+      <i class="fas fa-heart"></i>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+    </div>
 <% end %>
+</div>
+<div class="card" id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
 </div>

@@ -7,10 +7,25 @@ class AllotmentsController < ApplicationController
     else
       @allotments = Allotment.all
     end
+    @markers = @allotments.geocoded.map do |allotment|
+      {
+        lat: allotment.latitude,
+        lng: allotment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { allotment: allotment }),
+        image_url: helpers.asset_url('icons8-big-carrot-64.png')
+      }
+    end
   end
 
   def show
     @booking = Booking.new
+    @markers =
+      [{
+        lat: @allotment.latitude,
+        lng: @allotment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { allotment: @allotment }),
+        image_url: helpers.asset_url('icons8-big-carrot-64.png')
+      }]
   end
 
   def new

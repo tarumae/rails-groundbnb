@@ -10,15 +10,15 @@ require "open-uri"
 john = User.create(email: "john@john.com", password: "testtest", id: 1)
 jane = User.create(email: "jane@jane.com", password: "testtest", id: 2)
 
-allotment1 = Allotment.new(name: "Big Lovely Garden", description: "This is a lovely big garden where you can grow anything you wish.", location: "London", price: 55, area_size: 50)
+allotment1 = Allotment.new(name: "Big Lovely Garden", description: "This is a lovely big garden where you can grow anything you wish.", location: "Chatsworth Rd, Lower Clapton, London", price: 55, area_size: 50)
 allotment1.user = john
 allotment1.save
 
-allotment2 = Allotment.new(name: "Small Garden for Herbs", description: "A cute little garden perfectly suitable for growing your everyday herbs.", location: "London", price: 25, area_size: 10)
+allotment2 = Allotment.new(name: "Small Garden for Herbs", description: "A cute little garden perfectly suitable for growing your everyday herbs.", location: "Downs Park Rd, Lower Clapton, London", price: 25, area_size: 10)
 allotment2.user = jane
 allotment2.save
 
-allotment3 = Allotment.new(name: "Allotment with Greenhouse", description: "A reasonably sized allotment with a greenhouse. Perfect for vegetables and fruit", location: "London", price: 65, area_size: 35)
+allotment3 = Allotment.new(name: "Allotment with Greenhouse", description: "A reasonably sized allotment with a greenhouse. Perfect for vegetables and fruit", location: "138 Kingsland Rd, London", price: 65, area_size: 35)
 allotment3.user = john
 allotment3.save
 
