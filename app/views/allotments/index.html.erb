@@ -26,9 +26,9 @@
   </div>
 <% end %>
 
-
-<div class="container">
+<div class="container top-container">
 <% @allotments.each do |allotment| %>
+
 <div class="card-product">
   <% if allotment.photos.attached? %>
     <%= cl_image_tag(allotment.photos.first.key,
