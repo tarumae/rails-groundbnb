@@ -13,6 +13,22 @@
   </div>
 <% end %>
 
+  <div class="slide">
+    <div class="content-title">
+        <h1>Become an owner</h1>
+        <p>Create a new allotment</p>
+        <%= link_to "Get Started", new_allotment_path, class: "btn btn-flat"%>
+    </div>
+    <div class="content">
+      <div class="images">
+        <img class="slide-image" src="https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532435360584-O4OUYYF2YPO5EFQP5DK2/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/114-L1050990.jpg?format=2500w">
+        <img class="slide-image" src="https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532435348536-XTY5VRDUDDRY3CM02EMF/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/112-L1050983.jpg?format=2500w">
+        <img class="slide-image" src="https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532435556391-YZS4FIBZPSJDIBCDVGH7/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/102-B40I1541.jpg?format=2500w">
+        <img class="slide-image" src="https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532435349068-T3TAJ6X5P02SXQ3E29RE/ke17ZwdGBToddI8pDm48kM7lIDFHi7UQLNQSFuB5lX4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcevyHm_O1XoLPZqNjlvbO_6BXwzQSYyfdy-MonM784I1BD3hfTTPzV4wkkFabvReX/113-L1050984.jpg?format=2500w">
+        <img class="slide-image" src="https://images.squarespace-cdn.com/content/v1/5b10053a2487fdb5e3fe4b16/1532435588225-3278NQBFEZJTZQ85IVHZ/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/22-L1009685.jpg?format=2500w">
+      </div>
+    </div>
+</div>
 
   <div class="container top-container">
     <h3>Top-rated Allotments</h3>
@@ -28,7 +44,7 @@
         <div class="card-trip-infos">
           <div><%= allotment.name %></div>
           <div>Location: <%= allotment.location %></div>
-          <div><%= allotment.description %></div>
+          <div><%= allotment.description[0, 100] %>...</div>
           <div>Size: <%= allotment.area_size %>m<sup>2</sup></div>
         </div>
         <% end %>
