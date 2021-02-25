@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { init_flatpickr, totalprice } from "../components/flatpickr";
+import { slideShow } from '../components/indexphoto';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
