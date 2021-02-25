@@ -1,0 +1,39 @@
+// .page-container {
+//   display: grid;
+//   min-height: 100vh;
+//   grid-template-rows: auto 1fr auto;
+// }
+.footer {
+  border-color: rgba(255,255,255, 0.3);
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+.guild {
+  padding-right: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.icon-list {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.icon-list i {
+  color: #1EDD88;
+  font-size: 25px;
+}
+.quotes {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #0fa3b1;
+}
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}

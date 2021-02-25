@@ -28,7 +28,6 @@ import { init_flatpickr, totalprice } from "../components/flatpickr";
 import { slideShow } from '../components/indexphoto';
 import { initMapbox } from '../plugins/init_mapbox';
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

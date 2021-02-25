@@ -14,9 +14,12 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="page-container">
+      <div class="navbar-container sticky-top"><%= render "shared/navbar" %></div>
+      <%= render "shared/flashes" %>
+      <div class="content-container"><%= yield %></div>
+      <div class="footer-container"><%= render "shared/footer" %></div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
 </html>

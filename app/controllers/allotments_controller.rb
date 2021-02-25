@@ -1,5 +1,5 @@
 class AllotmentsController < ApplicationController
-  before_action :set_allotment, only: [:show, :edit, :update, :destroy]
+  before_action :set_allotment, only: %i[show edit update destroy]
 
   def index
     if params[:query].present?
