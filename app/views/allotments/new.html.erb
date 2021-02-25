@@ -1,7 +1,16 @@
 <div class="container">
-  <h1>New Allotment</h1>
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12 col-md-8">
+      <div class="form-login">
+        <div class="form p-5">
+        <h2>New Allotment</h2>
 
-  <%= render 'form', allotment: @allotment %>
+        <%= render 'form', allotment: @allotment %>
 
-  <%= link_to 'Back', allotments_path %>
+        <%= link_to 'Back', allotments_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

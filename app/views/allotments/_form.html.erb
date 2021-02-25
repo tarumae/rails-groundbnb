@@ -1,9 +1,27 @@
 <%= simple_form_for(@allotment) do |f| %>
-<%= f.input :name, placeholder: 'Name', label: 'Allotment Name' %>
-<%= f.input :description %>
-<%= f.input :location %>
-<%= f.input :price %>
-<%= f.input :area_size %>
-<%= f.input :photos, as: :file, input_html: { multiple: true} %>
-<%= f.button :submit %>
+<div>
+  <span>Name: </span>
+  <%= f.input :name, label: false %>
+</div>
+<div>
+  <span>Description: </span>
+  <%= f.input :description, label: false %>
+</div>
+<div>
+  <span>Location: </span>
+  <%= f.input :location, label: false %>
+</div>
+<div>
+  <span>Price: </span>
+  <%= f.input :price, label: false %>
+</div>
+<div>
+  <span>Area size: </span>
+  <%= f.input :area_size, label: false %>
+</div>
+<div>
+  <span>Photo: </span>
+  <%= f.input :photos, label: false, as: :file, input_html: { multiple: true} %>
+</div>
+<%= f.button :submit, class: "btn btn-flat"%>
 <% end %>

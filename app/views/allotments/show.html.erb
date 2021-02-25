@@ -44,7 +44,7 @@
   <% end %>
 
   <% if @allotment.user == current_user %>
-    <div class="options">
+    <div class="options d-flex justify-content-center">
       <ul>
         <li class="btn btn-flat fas fa-tools"><span id="edit"><%= link_to "Edit", edit_allotment_path(@allotment)  %></span></li>
         <br>
