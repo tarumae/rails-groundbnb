@@ -59,8 +59,8 @@
                 <p><%= booking.allotment.description %></p>
                 <% if booking.approved.nil? %>
                   <div class="approve-buttons">
-                    <%= link_to "Accept", booking_path(booking, approved: true), method: :patch, class: "btn btn-success" %>
-                    <%= link_to "Reject", booking_path(booking, approved: false), method: :patch, class: "btn btn-danger" %>
+                    <%= link_to "Accept", booking_path(booking, approved: true), method: :patch, class: "btn btn-flat ml-4" %>
+                    <%= link_to "Reject", booking_path(booking, approved: false), method: :patch, class: "btn btn-danger ml-4" %>
                   </div>
                 <% end %>
               </div>
