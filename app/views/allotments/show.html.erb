@@ -21,23 +21,24 @@
       <h4>A little bit about this allotment</h4>
       <div class="description-header-img">
         <% if @allotment.user != current_user %>
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+        <% avatars = ["https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345622/jane_kgqddw.png", "https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345377/john_aj1jop.jpg"] %>
+          <img class="avatar-large" alt="avatar-large" src= <%= avatars.sample%> />
         <% elsif @allotment.user == current_user %>
-          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+          <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345377/john_aj1jop.jpg" />
         <% end %>
         <p>Owned by: <%= @allotment.user.email %></p>
       </div>
     </div>
     <div class="description">
       <div>
-      <p><%= @allotment.description %></p>
+      <p style="max-width: 30vw;"><%= @allotment.description %></p>
       </div>
       <p><i class="fas fa-street-view"></i> <%= @allotment.location %></p>
       <p><i class="fas fa-ruler-horizontal"></i> Size: <%= @allotment.area_size %>m<sup>2</sup></p>
     </div>
     <div class="description-map">
     <div class="card" id="map"
-     style="width: auto; height: 400px; border-radius: 10px; position: relative; margin-top: 0px;"
+     style="width: 615px; height: 400px; border-radius: 10px; position: relative; margin-top: 0px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
