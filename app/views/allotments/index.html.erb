@@ -15,21 +15,28 @@
   <div class="card">
     <% @allotments.each do |allotment| %>
       <div class="card-product">
+        <div class="card-product-img">
         <% if allotment.photos.attached? %>
           <%= cl_image_tag(allotment.photos.first.key,
                 width: 400, height: 300, crop: :fill) %>
           <% else %>
             <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" class="card-product-img">
         <% end %>
+      </div>
         <%= link_to allotment_path(allotment), target: "_blank" do%>
           <div class="card-product-infos">
             <div class="card-product-info1">
-              <h3><%= allotment.name %></h3>
-              <p><%= allotment.description[0, 100] %>...</p>
+              <div><h3><%= allotment.name %></h3></div>
+              <div><p><%= allotment.description[0, 100] %>...</p></div>
+             </div>
+             <div class="card-product-info2">
+              <div></div>
+              <div>
               <p>Size: <%= allotment.area_size%>m<sup>2</sup></p>
               <p>Price: <%= "£#{allotment.price} per month" %></p>
+              </div>
+              </div>
             </div>
-          </div>
         <% if allotment.user != current_user %>
           <% avatars = ["https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345622/jane_kgqddw.png", "https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345377/john_aj1jop.jpg"] %>
           <img class="card-product-user avatar-bordered" alt="avatar-large" src= <%= avatars.sample %> />
