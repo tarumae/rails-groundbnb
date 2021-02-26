@@ -1,6 +1,6 @@
 export const init_flatpickr = () => {
   flatpickr(".datepickerstart", {
-    dateFormat: "Y.m.d",
+    dateFormat: "Y-m-d",
     minDate: "today",
     onChange: function (selectedDate) {
       flatpickr(".datepickerend", {
@@ -10,7 +10,7 @@ export const init_flatpickr = () => {
   })
 
   flatpickr(".datepickerend", {
-    dateFormat: "Y.m.d",
+    dateFormat: "Y-m-d",
     minDate: new Date().fp_incr(30),
   })
 }
