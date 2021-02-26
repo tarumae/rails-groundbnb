@@ -1,38 +1,71 @@
 .flex {
-  margin-bottom: 60px;
+  h1 {
+    text-align: center;
+  }
+}
+
+.photo-box {
+  height: 600px;
+  padding: 40px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   img {
     margin: 0 5px;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: cover;
   }
   h1 {
     margin-top: 20px;
     margin-left: 40px;
-    color: #F4F4F4;
+    color: black;
     font-size: 50px;
     letter-spacing: 5px;
   }
 }
+.description-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F5E0BD;
+  margin-bottom: 30px;
 
-.details {
-  justify-content: center;
+  .description-header-img{
+    display: grid;
+    p {
+      align-self: end;
+      font-size: 13px;
+      color: #717171;
+    }
+  }
+  .avatar-large {
+    width: 56px;
+    border-radius: 50%;
+    justify-self: end;
+    padding-bottom: 10px;
+  }
 }
 
-.description, .booking {
-  padding: 32px;
-  background-color: #F4F4F4;
-  margin: 15px 52px;
+.details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.description {
+  margin-bottom: 20px;
+  p:first-child {
+    padding-bottom: 30px;
+  }
 }
 
 .show-background {
-  margin-top: 60px;
+  margin-top: 20px;
   border-radius: 3%;
-  background-color: #81eebd;
-  box-shadow: 5px 5px rgba(175, 170, 185, 20%);
   padding: 64px;
   padding-bottom: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 150px;
 }
 
 .pics {
@@ -40,30 +73,36 @@
   height:300px;
 }
 
+.booking {
+  position: sticky;
+  top: 90px;
+  right: 0;
+  background: #F5E0BD;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 30px;
+  border-radius: 10px;
+  opacity: 0.9;
+  h6 {
+    text-align: right;
+  }
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    opacity: 1;
+  }
+}
+
 .options {
   border-radius: 26%;
   // background-color: wite;
-  padding: 32px;
-  margin: 15px 52px;
+  position: sticky;
+  top: 100px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 0;
+  a {
+    margin: 20px 0;
+  }
 }
 
-.options li {
-  padding: 12px 28px;
-  color: #0fa3b1;
-}
 
-.options li:hover {
-  color: #D8F1A0;
-}
-
-.options li a {
-  color: #D8F1A0;
-}
-
-#edit {
-  padding: 0 7px;
-}
-
-#delete {
-  margin-top: 35px;
-}

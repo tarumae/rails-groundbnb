@@ -7,7 +7,6 @@
   align-items: center;
   margin: 10px;
   position: relative;
-  border-radius: 10px;
   .card-product-user {
     position: absolute;
     right: 16px;
@@ -53,9 +52,10 @@
 }
 
 .index-card {
-  
+
   width: 25vw;
 }
+
 .card-product-info2 {
     align-self: end;
     justify-self: end;
@@ -93,10 +93,9 @@
 }
 .card-box{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   padding: 20px;
+  margin-bottom: 100px;
 }
 
-.card {
-  border-radius: 10px;
-}
+
