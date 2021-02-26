@@ -19,8 +19,8 @@ puts "Database cleaned. Creating new Users and Allotments..."
 
 users = []
 
-john = User.create(email: "john@john.com", password: "testtest", id: 1)
-jane = User.create(email: "jane@jane.com", password: "testtest", id: 2)
+john = User.create(email: "john@john.com", password: "testtest")
+jane = User.create(email: "jane@jane.com", password: "testtest")
 
 5.times do
   user = User.create(email: Faker::Internet.email, password: "testtest")
