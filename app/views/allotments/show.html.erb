@@ -6,39 +6,57 @@
 
   </div>
 
-  <div class="flex">
-
+  <div class="photo-box">
       <% if @allotment.photos.attached? %>
         <%= cl_image_tag(@allotment.photos.first.key,
-          width: 400, height: 300, crop: :fill, style: "border-radius: 10px;") %>
+          crop: :fill, style: "border-radius: 10px;") %>
       <% else %>
-         <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" width="400" height="300" style="border-radius: 10px;">
+         <img src= "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" style="border-radius: 10px;">
       <% end %>
-    <div class="card" id="map"
-     style="width: 400px; height: 300px; border-radius: 10px; position: relative; margin-top: 0px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
   </div>
 
   <div class="flex details">
-
-    <div class="description">
+    <div class="description-container">
+    <div class="description-header">
       <h4>A little bit about this allotment</h4>
+      <div class="description-header-img">
+        <% if @allotment.user != current_user %>
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+        <% elsif @allotment.user == current_user %>
+          <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <% end %>
+        <p>Owned by: <%= @allotment.user.email %></p>
+      </div>
+    </div>
+    <div class="description">
+      <div>
       <p><%= @allotment.description %></p>
+      </div>
       <p><i class="fas fa-street-view"></i> <%= @allotment.location %></p>
       <p><i class="fas fa-ruler-horizontal"></i> Size: <%= @allotment.area_size %>m<sup>2</sup></p>
-      <p>Owned by: <%= @allotment.user.email %></p>
+    </div>
+    <div class="description-map">
+    <div class="card" id="map"
+     style="width: auto; height: 400px; border-radius: 10px; position: relative; margin-top: 0px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
     </div>
 
   <% if @allotment.user != current_user %>
+  <div>
     <div class="booking">
+      <h4>Select dates for prices</h4>
       <h6><strong>£</strong><strong class="price"><%= @allotment.price %></strong> per month</h6>
       <h5 class="totalprice"></h5>
       <%= simple_form_for [@allotment, @booking] do |f| %>
-        <%= f.input :start_date, as: :string, input_html: {class: "datepickerstart"} %>
-        <%= f.input :end_date, as: :string, input_html: {class: "datepickerend"} %>
+        <span>START DATE</span>
+        <%= f.input :start_date, label: false, as: :string, input_html: {class: "datepickerstart"} %>
+        <span>END DATE</span>
+        <%= f.input :end_date, label: false, as: :string, input_html: {class: "datepickerend"} %>
         <button type="button" class="btn btn-flat book-button" data-toggle="modal" data-target="#exampleModal" disabled>Book</button>
+          </div>
+      </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -58,17 +76,18 @@
           </div>
         </div>
       <% end %>
-    </div>
   <% end %>
 
   <% if @allotment.user == current_user %>
-    <div class="options d-flex justify-content-center">
-      <ul>
-        <li class="btn btn-flat fas fa-tools"><span id="edit"><%= link_to "Edit", edit_allotment_path(@allotment)  %></span></li>
-        <br>
-        <br>
-        <li class="btn btn-flat fas fa-trash-alt" id="delete"> <span><%= link_to "Delete", allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"} %></span></li>
-      </ul>
+  <div>
+    <div class="options">
+      <%= link_to edit_allotment_path(@allotment), class: "btn btn-flat" do %>
+        <span id="edit"><i class="fas fa-tools"></i> Edit</span>
+        <% end %>
+      <%= link_to allotment_path(@allotment), method: :delete, data: {confirm: "Are you sure you wish to delete it?"}, class: "btn btn-flat" do %>
+        <span id="edit"><i class="fas fa-trash-alt"></i> Delete</span>
+        <% end %>
+    </div>
     </div>
   <% end %>
 

@@ -1,7 +1,7 @@
 
 
 <%= form_tag allotments_path, method: :get do %>
-<div class="search-form-control form-group ml-4 inline">
+<div class="search-form-control form-group">
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -30,8 +30,12 @@
               <p>Price: <%= "£#{allotment.price} per month" %></p>
             </div>
           </div>
+        <% if allotment.user != current_user %>
+          <img class="card-product-user avatar-bordered" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+        <% elsif allotment.user == current_user %>
+          <img class="card-product-user avatar-bordered" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <% end %>
           <% end %>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
       </div>
     <% end %>
   </div>
