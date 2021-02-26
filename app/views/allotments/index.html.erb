@@ -31,9 +31,10 @@
             </div>
           </div>
         <% if allotment.user != current_user %>
-          <img class="card-product-user avatar-bordered" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+          <% avatars = ["https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345622/jane_kgqddw.png", "https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345377/john_aj1jop.jpg"] %>
+          <img class="card-product-user avatar-bordered" alt="avatar-large" src= <%= avatars.sample %> />
         <% elsif allotment.user == current_user %>
-          <img class="card-product-user avatar-bordered" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+          <img class="card-product-user avatar-bordered" alt="avatar-large" src="https://res.cloudinary.com/dx6rtf9wl/image/upload/v1614345377/john_aj1jop.jpg" />
         <% end %>
           <% end %>
       </div>
